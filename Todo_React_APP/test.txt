@@ -1,0 +1,5 @@
+// Fetch updated todos from backend and update the state
+      const todosResponse = await fetch("http://localhost:8000/api/v1/");
+      const todos = await todosResponse.json();
+      console.log(todos);
+      props.onsubmithandle(todos.data);
