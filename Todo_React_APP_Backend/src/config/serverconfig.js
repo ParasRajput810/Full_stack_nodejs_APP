@@ -3,5 +3,27 @@ const dotenv = require("dotenv");
 dotenv.config();
 
 module.exports = {
-    PORT: process.env.PORT
-}
+    development: {
+        username: process.env.DB_USERNAME,
+        password: process.env.DB_PASSWORD,
+        database: process.env.DB_DATABASE,
+        host: process.env.DB_HOST, // Default to localhost
+        dialect: "mysql"
+    },
+    test: {
+        username: process.env.DB_USERNAME ,
+        password: process.env.DB_PASSWORD ,
+        database: process.env.DB_DATABASE ,
+        host: process.env.DB_HOST ,
+        dialect: "mysql"
+    },
+    production: {
+        username: process.env.DB_USERNAME,
+        password: process.env.DB_PASSWORD,
+        database: process.env.DB_DATABASE,
+        host: process.env.DB_HOST,
+        dialect: "mysql"
+    },
+    PORT:process.env.PORT
+};
+
