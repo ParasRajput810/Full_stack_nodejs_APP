@@ -4,6 +4,7 @@ import  "./Form.css"
 const FormSetup = (props)=>{
   const [firstname , setfirstname] = useState("");
   const [lastname , setlastname] = useState("");
+  const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
   const firstnamehandler = (event)=>{
     setfirstname(event.target.value);
@@ -19,7 +20,7 @@ const FormSetup = (props)=>{
   
     // Make a POST request to your backend to create a new todo
     try {
-      const response = await fetch("http://localhost:8000/api/v1/", {
+      const response = await fetch(`${API_BASE_URL}/`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -30,7 +31,7 @@ const FormSetup = (props)=>{
       const result = await response.json();
   
       // Fetch updated todos from backend and update the state
-      const todosResponse = await fetch("http://localhost:8000/api/v1/");
+      const todosResponse = await fetch(`${API_BASE_URL}/`);
       const todos = await todosResponse.json();
   
       props.onsubmithandle(todos.data);
