@@ -8,12 +8,6 @@ sudo apt-get docker.io -y
 
 sudo chown ubuntu /var/run/docker.sock
 
-sudo mkdir project
-
-cd project 
-
-git clone https://github.com/ParasRajput810/Full_stack_nodejs_APP.git
-
 cd Full_stack_nodejs_APP
 
 cd Todo_React_APP
