@@ -4,11 +4,9 @@ echo "-----Initiated Process-------"
 
 sudo apt-get update -y
 
-sudo apt-get docker.io -y
+sudo apt-get install docker.io -y
 
 sudo chown ubuntu /var/run/docker.sock
-
-cd Full_stack_nodejs_APP
 
 cd Todo_React_APP
 
