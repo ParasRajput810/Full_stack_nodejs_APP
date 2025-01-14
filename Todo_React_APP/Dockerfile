@@ -6,7 +6,7 @@ COPY . /app
 
 RUN npm install
 
-ENV REACT_APP_API_BASE_URL=http://todoApp:8000/api/v1
+ENV REACT_APP_API_BASE_URL=http://todoApp:8000
 
 EXPOSE 3000
 
