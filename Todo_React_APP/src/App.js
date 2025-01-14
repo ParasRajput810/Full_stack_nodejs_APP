@@ -12,7 +12,7 @@ function App() {
     useEffect(() => {
         const fetchTodos = async () => {
             try {
-                const todosResponse = await fetch(`${API_BASE_URL}/api/v1`);
+                const todosResponse = await fetch(`${API_BASE_URL}`);
                 const todos = await todosResponse.json();
                 setData(todos.data); // Update state with fetched data
             } catch (error) {
@@ -28,12 +28,12 @@ function App() {
             const todotodel = row.id;
 
             // Make a DELETE request to your backend to delete the todo
-            await fetch(`${API_BASE_URL}/api/v1/?id=${todotodel}`, {
+            await fetch(`${API_BASE_URL}/?id=${todotodel}`, {
                 method: "DELETE",
             });
 
             // Fetch updated todos from backend and update the state
-            const todosResponse = await fetch(`${API_BASE_URL}/api/v1/`);
+            const todosResponse = await fetch(`${API_BASE_URL}`);
             const todos = await todosResponse.json();
 
             setData(todos.data);

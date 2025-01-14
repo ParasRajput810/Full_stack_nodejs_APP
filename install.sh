@@ -32,7 +32,7 @@ done
 echo "MySQL is up and running."
 
 
-docker run -itd --name todoApp --network my_bridge_network backend_image
+docker run -itd --name todoApp --network my_bridge_network -p 8000:8000 backend_image
 
 docker run -itd --name ReactApp --network my_bridge_network -p 3000:3000 frontend_image
 
