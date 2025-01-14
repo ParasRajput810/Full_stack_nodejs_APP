@@ -31,7 +31,7 @@ const FormSetup = (props)=>{
       const result = await response.json();
   
       // Fetch updated todos from backend and update the state
-      const todosResponse = await fetch(`${API_BASE_URL}/`);
+      const todosResponse = await fetch(`${API_BASE_URL}/api/v1/`);
       const todos = await todosResponse.json();
   
       props.onsubmithandle(todos.data);
