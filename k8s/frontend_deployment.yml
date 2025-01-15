@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: Todo_frontend
+  namespace: Todo
+  labels:
+    app: TodoApp_frontend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: TodoApp_frontend
+  template:
+    metadata:
+      name: TodoApp_frontend
+      labels:
+        app: TodoApp_frontend
+
+    spec:
+      containers:
+        - name: ReactApp
+          image: pr8101999/todo_frontend:latest
+          ports:
+            - containerPort: 3000
+          env:
+            - name: REACT_APP_API_BASE_URL
+              value: http://localhost:8000/api/v1

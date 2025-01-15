@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: Todo_backend
+  namespace: Todo
+  labels:
+    app: TodoApp_backend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: TodoApp_backend
+  template:
+    metadata:
+      name: TodoApp_backend
+      labels:
+        app: TodoApp_backend
+
+    spec:
+      containers:
+        - name: ReactApp
+          image: pr8101999/todo_backend
+          ports:
+            - containerPort: 8000
+          env:
+            - name: DB_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: Todo_backend
+                  key: DB_USERNAME
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: Todo_backend
+                  key: DB_PASSWORD
+            - name: DB_DATABASE
+              valueFrom:
+                configMapKeyRef:
+                  name: Todo_backend
+                  key: DB_DATABASE
+            - name: DB_HOST
+              valueFrom:
+                configMapKeyRef:
+                  name: Todo_backend
+                  key: DB_HOST
+            - name: NODE_ENV
+              value: development
+            - name: PORT
+              value: 8000

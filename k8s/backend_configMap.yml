@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: Todo_backend
+  namespace: Todo
+data:
+  DB_DATABASE: TodoDB
+  DB_HOST: mysql
