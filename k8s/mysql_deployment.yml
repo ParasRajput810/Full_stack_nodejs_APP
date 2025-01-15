@@ -1,9 +1,11 @@
 apiVersion: apps/v1
-kind: Deployment
+kind: StatefulSet
 metadata:
   name: mysql
   namespace: todo
 spec:
+  serviceName: mysql
+  replicas: 2
   selector:
     matchLabels:
       app: mysql
@@ -14,7 +16,7 @@ spec:
     spec:
       containers:
         - name: mysql
-          image: mysql:latest
+          image: mysql
           ports:
             - containerPort: 3306
           env:
@@ -23,3 +25,23 @@ spec:
                 secretKeyRef:
                   name: db-secret
                   key: MYSQL_ROOT_PASSWORD
+          resources:
+            requests:
+              memory: 1Gi
+              cpu: 100m
+            limits:
+              memory: 2Gi
+              cpu: 200m
+
+          volumeMounts:
+            - name: mysql-data
+              mountPath: /var/lib/mysql
+
+  volumeClaimTemplates:
+    - metadata:
+        name: mysql-data
+      spec:
+        accessModes: ["ReadWriteOnce"]
+        resources:
+          requests:
+            storage: 1Gi
