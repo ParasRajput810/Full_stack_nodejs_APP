@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: TodoApp_frontend_service
-  namespace: Todo
+  namespace: todo
 spec:
   selector:
     app: TodoApp_frontend

@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: Todo_backend
-  namespace: Todo
+  namespace: todo
   labels:
     app: TodoApp_backend
 spec:
