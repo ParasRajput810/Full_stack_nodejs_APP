@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: TodoApp_backend_service
+  name: todoapp-backend-service
   namespace: todo
 spec:
   selector:
-    app: TodoApp_backend
+    app: todoapp-backend
   ports:
     - port: 8000
       targetPort: 8000

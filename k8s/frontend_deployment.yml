@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: Todo_frontend
+  name: todo-frontend
   namespace: todo
   labels:
-    app: TodoApp_frontend
+    app: todoapp-frontend
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: TodoApp_frontend
+      app: todoapp-frontend
   template:
     metadata:
-      name: TodoApp_frontend
+      name: todoapp-frontend
       labels:
-        app: TodoApp_frontend
+        app: todoapp-frontend
 
     spec:
       containers:
